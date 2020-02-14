@@ -1,0 +1,6 @@
+---
+- name: Build and deploy Rancher
+  hosts: all
+  roles:
+    - {role: install_docker, become: yes, become_method: sudo, tags: install_docker}
+    - {role: run_docker, tags: run_container}

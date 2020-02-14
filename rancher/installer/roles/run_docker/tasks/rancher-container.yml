@@ -1,0 +1,16 @@
+---
+- name: Running the container
+  docker_container:
+    image: rancher/rancher:latest
+    name: rancher-server
+    state: started
+    keep_volumes: yes
+    restart_policy: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "/var/log/rancher/auditlog:/var/log/auditlog"
+      - "/opt/rancher:/var/lib/rancher"
+    env:
+      AUDIT_LEVEL: "1"
