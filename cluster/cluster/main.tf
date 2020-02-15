@@ -14,8 +14,6 @@ module "credentials" {
   api_key = "${data.terraform_remote_state.rancher.outputs.server_url}"
   env = "meetup"
   name = "meetup-credentials"
-//  aws_access_key = "AKIAT4BS6CTZNCGGH5VE"
-//  aws_secret_key = "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"
   aws_access_key = "${var.aws_access_key}"
   aws_secret_key = "${var.aws_secret_key}"
   token = "${data.terraform_remote_state.rancher.outputs.server_token}"
